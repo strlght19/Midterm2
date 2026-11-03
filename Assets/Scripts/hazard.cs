@@ -44,7 +44,7 @@ public class hazard : MonoBehaviour
         }
         else if (transform.position.y <= origin.y - distanceThreshold)
         {
-
+            movingUp = 1;
         }
 
         myBody.linearVelocity = tempVelocity;
