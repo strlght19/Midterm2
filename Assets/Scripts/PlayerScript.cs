@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -30,6 +31,7 @@ public class PlayerScript : MonoBehaviour
     //Start automatically gets triggered once when the objects turns on/the game starts
     void Start()
     {
+        Debug.Log("Hello world");
         //During setup we call UpdateScore to make sure our score text looks correct
         UpdateScore();
     }
@@ -76,8 +78,18 @@ public class PlayerScript : MonoBehaviour
         //If it does...
         if (other.gameObject.CompareTag("Hazard"))
         {
+            if (Lives >= 2)
+            {
+                Lives--;
+
+                UpdateLives();
+            }
+                else
+                {
+                    Die();
+                }
             //Run your 'you lose' function!
-            Die();
+           
         }
         
         //This checks to see if the thing you bumped into has the CoinScript script on it
@@ -99,6 +111,11 @@ public class PlayerScript : MonoBehaviour
     public void UpdateScore()
     {
         ScoreText.text = "Score: " + Score;
+    }
+
+    public void UpdateLives()
+    {
+        LivesText.text = "Lives: " + Lives;
     }
 
     //If this function is called, the player character dies. The game goes to a 'Game Over' screen.
