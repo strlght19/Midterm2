@@ -30,7 +30,7 @@ public class hazard : MonoBehaviour
         else if (movingUp == 1)
         {
 
-
+            tempVelocity.y = -1;
         }
         // Move down
 
@@ -40,8 +40,9 @@ public class hazard : MonoBehaviour
 
         if (transform.position.y >= origin.y + distanceThreshold)
         {
-            // movingup = 0; 
-        } else if (transform.position.y <= origin.y - distanceThreshold)
+            movingUp = 0;
+        }
+        else if (transform.position.y <= origin.y - distanceThreshold)
         {
 
         }
