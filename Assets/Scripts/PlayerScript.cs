@@ -103,6 +103,15 @@ public class PlayerScript : MonoBehaviour
             Score++;
             //And then update the game's score text
             UpdateScore();
+
+            Debug.Log("Current Score: " + Score);
+
+            if (Score >= 12)
+            {
+                Debug.Log("YOU WIN!");
+
+                Win();
+            }
         }
     }
 
@@ -112,10 +121,7 @@ public class PlayerScript : MonoBehaviour
     {
         ScoreText.text = "Score: " + Score;
 
-        if (Score == 12)
-        {
-            Win();
-        }
+       
     }
 
     public void UpdateLives()
