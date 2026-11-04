@@ -7,7 +7,7 @@ public class hazard : MonoBehaviour
     public Vector2 velocity;
 
     public Rigidbody2D myBody;
-    public int distanceThreshold = 2;
+    public int distanceThreshold = 5;
 
     public int movingUp = 0;
     
@@ -25,12 +25,12 @@ public class hazard : MonoBehaviour
         Vector2 tempVelocity = Vector2.zero;
         if (movingUp == 0)
         {
-            tempVelocity.y = 1;
+            tempVelocity.y = 2;
         }
         else if (movingUp == 1)
         {
 
-            tempVelocity.y = -1;
+            tempVelocity.y = -2;
         }    
       
         // Move down
