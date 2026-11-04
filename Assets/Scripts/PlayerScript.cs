@@ -111,6 +111,11 @@ public class PlayerScript : MonoBehaviour
     public void UpdateScore()
     {
         ScoreText.text = "Score: " + Score;
+
+        if (Score == 12)
+        {
+            Win();
+        }
     }
 
     public void UpdateLives()
@@ -122,5 +127,10 @@ public class PlayerScript : MonoBehaviour
     public void Die()
     {
         SceneManager.LoadScene("Game Over");
+    }
+
+    public void Win()
+    {
+        SceneManager.LoadScene("You Win");
     }
 }
