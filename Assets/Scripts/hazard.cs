@@ -10,13 +10,13 @@ public class hazard : MonoBehaviour
     public int distanceThreshold = 2;
 
     public int movingUp = 0;
-    public int movingDown = 0;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         origin = transform.position;
         movingUp = Random.Range(0, 2);
-        movingDown = Random.Range(0, 2);
+        
     }
 
     // Update is called once per frame
@@ -31,7 +31,8 @@ public class hazard : MonoBehaviour
         {
 
             tempVelocity.y = -1;
-        }
+        }    
+      
         // Move down
 
         // if position is origin + threshold
@@ -40,11 +41,11 @@ public class hazard : MonoBehaviour
 
         if (transform.position.y >= origin.y + distanceThreshold)
         {
-            movingUp = 0;
+            movingUp = 1;
         }
         else if (transform.position.y <= origin.y - distanceThreshold)
         {
-            movingUp = 1;
+            movingUp = 0;
         }
 
         myBody.linearVelocity = tempVelocity;
